@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost:27017/quotes')
+mongoose.connect('mongodb+srv://NawfAbdullah:SBbUhLVBnwo7zK3F@cluster0.t99us.mongodb.net/QuotesApi?retryWrites=true&w=majority')
 
 quotesSchema = new mongoose.Schema({
     'quote':String,
@@ -135,6 +135,6 @@ app.delete('/:id',(req,res)=>{
     }
 })
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
